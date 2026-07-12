@@ -1,4 +1,7 @@
 from flask import Flask
+@app.route('/')
+def home():
+    return "<h1>BTC Whale Bot is ONLINE 🐋</h1><p>We’re in business.</p>"
 app = Flask(__name__)
 import asyncio, json, websockets, pandas as pd, threading, requests
 from datetime import datetime, timezone, timedelta
