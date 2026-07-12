@@ -8,6 +8,12 @@ import numpy as np
 from scipy.signal import find_peaks
 from collections import defaultdict, deque
 import warnings
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "<h1>Whale Bot Running</h1>"
 warnings.filterwarnings("ignore")
 
 COINBASE_WS = "wss://ws-feed.exchange.coinbase.com"
