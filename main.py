@@ -1,22 +1,14 @@
-from flask import Flask
-def home():
-import asyncio, json, websockets, pandas as pd, threading, requests
-from datetime import datetime, timezone, timedelta
-from sklearn.linear_model import PassiveAggressiveClassifier
-from sklearn.preprocessing import StandardScaler
 from flask import Flask, jsonify
 from flask_cors import CORS
-import numpy as np
-from collections import defaultdict, deque
-import warnings
-from flask import Flask
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
-    return "<h1>Whale Bot Running</h1>"
+def home():
+    return "<h1>BTC Whale Bot is ONLINE 🐋</h1>"
 
+import asyncio, json, websockets, pandas as pd, threading
 COINBASE_WS = "wss://ws-feed.exchange.coinbase.com"
-CORS(app)
 
 history_log = deque(maxlen=100)
 latest_data = {
