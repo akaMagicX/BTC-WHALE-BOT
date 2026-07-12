@@ -1,3 +1,5 @@
+from flask import Flask
+app = Flask(__name__)
 import asyncio, json, websockets, pandas as pd, threading, requests
 from datetime import datetime, timezone, timedelta
 from sklearn.linear_model import PassiveAggressiveClassifier
