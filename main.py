@@ -1,8 +1,5 @@
 from flask import Flask
-@app.route('/')
 def home():
-    return "<h1>BTC Whale Bot is ONLINE 🐋</h1><p>We’re in business.</p>"
-app = Flask(__name__)
 import asyncio, json, websockets, pandas as pd, threading, requests
 from datetime import datetime, timezone, timedelta
 from sklearn.linear_model import PassiveAggressiveClassifier
@@ -10,21 +7,15 @@ from sklearn.preprocessing import StandardScaler
 from flask import Flask, jsonify
 from flask_cors import CORS
 import numpy as np
-from scipy.signal import find_peaks
 from collections import defaultdict, deque
 import warnings
 from flask import Flask
 app = Flask(__name__)
 
 @app.route('/')
-def home():
     return "<h1>Whale Bot Running</h1>"
-warnings.filterwarnings("ignore")
 
 COINBASE_WS = "wss://ws-feed.exchange.coinbase.com"
-PRODUCT_ID = "BTC-USD"
-
-app = Flask(__name__)
 CORS(app)
 
 history_log = deque(maxlen=100)
@@ -33,7 +24,6 @@ latest_data = {
     "prediction_late": "NONE", "confidence_late": 0,
     "accuracy": 0, "price": 0, "block_start": "", "rsi": 50, "net_liquidity": 0,
     "correct": None, "total_blocks": 0, "patterns": [], "whale_signal": 0
-}
 
 class BTCPredictor:
     def __init__(self):
